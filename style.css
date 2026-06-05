@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Fundo azul exato da sua imagem */
+    background-color: #4A90E2; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-container {
+    /* Define o tamanho visível do ícone */
+    width: 60px;
+    height: 60px;
+}
+
+.loader {
+    /* Define a animação de rotação */
+    animation: rotate 2s linear infinite;
+    width: 100%;
+    height: 100%;
+}
+
+.path {
+    /* Define a cor e a espessura da linha */
+    stroke: #ffffff; /* Branco */
+    stroke-linecap: round; /* Pontas arredondadas */
+    
+    /* === OS TRUQUES MÁGICOS === */
+    /* Define o comprimento da linha tracejada e o espaço entre elas */
+    stroke-dasharray: 90, 150; 
+    /* Faz a linha tracejada se mover (anima o arco) */
+    animation: dash 1.5s ease-in-out infinite;
+}
+
+/* Animação para girar o SVG inteiro */
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animação para fazer o arco 'esticar' e 'encolher' enquanto gira */
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dashoffset: -35;
+    }
+    100% {
+        stroke-dashoffset: -125;
+    }
+}
